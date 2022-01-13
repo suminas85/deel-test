@@ -1,0 +1,12 @@
+@import './reset';
+@import './typography';
+@import './normalize';
+
+body {
+  position: relative;
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
