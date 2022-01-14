@@ -32,9 +32,10 @@ const AppContextProvider = (
   const handleCurrencyValueChange = (value: string) => {
     setActiveCurrency({});
 
-    if (typeof value === "string" && value.length >= 3) {
+    if (value.length >= 3) {
       setCurrencyDataLoading(true);
 
+      // json data generated from api.coinbase.com
       fetch("./response.json", {
         method: "GET",
         headers: {

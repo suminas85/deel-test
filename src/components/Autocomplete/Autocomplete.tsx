@@ -79,9 +79,10 @@ const Autocomplete: FC<IAutoCompleteProps> = ({
           ref={listRef}
         >
           {options.map(({ id, name }) => {
-            const overlapIndex = name
+            const overlapStartIndex = name
               .toLowerCase()
               .indexOf(value.toLowerCase());
+            const overlapEndIndex = overlapStartIndex + value.length;
 
             return (
               <button
@@ -89,9 +90,11 @@ const Autocomplete: FC<IAutoCompleteProps> = ({
                 className={styles.option}
                 onClick={() => handleOptionClick(id)}
               >
-                {name.slice(0, overlapIndex)}
-                <b>{name.slice(overlapIndex, overlapIndex + value.length)}</b>
-                {name.slice(-(name.length - (overlapIndex + value.length)))}
+                {name.slice(0, overlapStartIndex)}
+                <b>{name.slice(overlapStartIndex, overlapEndIndex)}</b>
+                {name.length - overlapEndIndex > 0
+                  ? name.slice(-(name.length - overlapEndIndex))
+                  : ""}
               </button>
             );
           })}

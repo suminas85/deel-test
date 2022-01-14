@@ -15,6 +15,11 @@ const SearchForm: FC = () => {
 
   return (
     <div className={styles.form}>
+      <p className={styles.note}>
+        <b>Note:</b> you can find all currency names by using this autocomplete,
+        just somethig like a <b>"dollar"</b>, <b>"gold"</b> or <b>"peso"</b>. At
+        least <b>3 symbols</b> to search.
+      </p>
       <Autocomplete
         name={"currAutocomplete"}
         label={"Search currency"}
